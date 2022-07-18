@@ -6,6 +6,7 @@ import header from "./component/header";
 import sidebar from "./component/sidebar";
 import footer from "./component/footer";
 import footerScript from "./scripts/footerScript";
+import content from "./component/content";
 
 // Head
 const head = document.head;
@@ -13,17 +14,15 @@ const head = document.head;
 // Body
 const body = document.body;
 
-// Main Container
-const mainContainer = document.createElement("div");
-mainContainer.classList.add("mainContainer");
-body.appendChild(mainContainer);
-
 // Header
-mainContainer.appendChild(header());
+body.appendChild(header());
 
 // Sidebar
-mainContainer.appendChild(sidebar());
+body.appendChild(sidebar());
+
+// Content
+body.appendChild(content());
 
 // Footer
-mainContainer.appendChild(footer());
+body.appendChild(footer());
 head.appendChild(footerScript());
