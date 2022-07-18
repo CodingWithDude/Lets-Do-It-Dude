@@ -1,0 +1,79 @@
+:root {
+}
+
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  font-size: 100%;
+  line-height: 1.6;
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* footer support */
+  margin-bottom: 2rem;
+}
+
+/* Main Container */
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 4fr;
+  grid-template-rows: 1fr 100%;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 1 / span 2;
+  background-color: aqua;
+  font-size: 4rem;
+  padding: 1rem;
+}
+
+/* Sidebar */
+
+.sidebar {
+  grid-column: 1;
+  grid-row: 2;
+  background-color: red;
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.fa-github {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
