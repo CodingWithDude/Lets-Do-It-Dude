@@ -1,4 +1,15 @@
 :root {
+  /* colors */
+  --title-bgc: #0284c7;
+  --title-c: #ffffff;
+
+  --sidebar-bgc: #e0f2fe;
+  --sidebar-c: #111827;
+
+  --content-bgc: #ffffff;
+  --content-c: #111827;
+
+  --footer-c: #111827;
 }
 
 /* CSS RESET */
@@ -24,9 +35,8 @@ body {
   overflow: hidden;
   height: inherit;
   display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-rows: 20% 80%;
-  grid-template-rows: 1fr 100%;
+  grid-template-columns: minmax(75px, 350px) minmax(225px, auto);
+  grid-template-rows: 4rem auto;
   /* footer support */
   margin-bottom: 2rem;
 }
@@ -34,22 +44,34 @@ body {
 /* Header */
 
 .header {
+  display: flex;
+  align-items: center;
   grid-column: 1 / span 2;
-  background-color: aqua;
-  font-size: 4rem;
+  background-color: var(--title-bgc);
   padding: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--title-c);
 }
 
 /* Sidebar */
 
 .sidebar {
-  overflow-x: scroll;
-  background-color: red;
+  overflow: auto;
+  font-size: 2rem;
+  color: var(--sidebar-c);
+  background-color: var(--sidebar-bgc);
+  padding: 1rem;
 }
 
 .content {
-  overflow-x: scroll;
-  background-color: greenyellow;
+  overflow: auto;
+  font-size: 2rem;
+  color: var(--content-c);
+  background-color: var(--content-bgc);
+  padding: 1rem;
 }
 
 /* FOOTER */
@@ -65,9 +87,11 @@ body {
   width: 100%;
   padding: 1rem 0;
   font-size: 1.5rem;
+  color: var(--footer-c);
 }
 
 .fa-github {
+  color: var(--footer-c);
   font-size: 1.5rem;
   transition: transform 0.3s ease-in-out;
 }

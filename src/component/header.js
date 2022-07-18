@@ -6,7 +6,7 @@ function header() {
   // Title
   const title = document.createElement("h1");
   title.classList.add("title");
-  title.textContent = "Lets Do It Dude";
+  title.textContent = "Do It Dude";
   header.appendChild(title);
 
   // Return Content
