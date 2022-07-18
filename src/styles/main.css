@@ -9,6 +9,9 @@
   --content-bgc: #ffffff;
   --content-c: #111827;
 
+  --addTask-bgc: #0284c7;
+  --addTask-c: #ffffff;
+
   --footer-c: #111827;
 }
 
@@ -66,12 +69,31 @@ body {
   padding: 1rem;
 }
 
+/* Content */
+
 .content {
   overflow: auto;
   font-size: 2rem;
   color: var(--content-c);
   background-color: var(--content-bgc);
   padding: 1rem;
+}
+
+.addTask {
+  font-size: 1.5rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 50px;
+  border: 3px solid transparent;
+  color: var(--addTask-c);
+  background-color: var(--addTask-bgc);
+}
+
+.addTask:hover {
+  border: 3px solid var(--addTask-bgc);
+  color: var(--addTask-bgc);
+  background-color: var(--addTask-c);
+  cursor: pointer;
 }
 
 /* FOOTER */
