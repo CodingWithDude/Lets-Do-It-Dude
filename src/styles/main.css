@@ -26,7 +26,7 @@
 }
 
 html {
-  height: 100vh;
+  height: 100%;
   font-size: 100%;
   line-height: 1.6;
   /* footer support */
@@ -38,7 +38,7 @@ body {
   overflow: hidden;
   height: inherit;
   display: grid;
-  grid-template-columns: minmax(75px, 350px) minmax(225px, auto);
+  grid-template-columns: minmax(50px, 350px) minmax(225px, auto);
   grid-template-rows: 4rem auto;
   /* footer support */
   margin-bottom: 2rem;
@@ -63,6 +63,7 @@ body {
 
 .sidebar {
   overflow: auto;
+  width: minmax(50px, 225px);
   font-size: 2rem;
   color: var(--sidebar-c);
   background-color: var(--sidebar-bgc);
@@ -72,16 +73,23 @@ body {
 /* Content */
 
 .content {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: auto;
   font-size: 2rem;
   color: var(--content-c);
   background-color: var(--content-bgc);
   padding: 1rem;
+  margin-bottom: 3rem;
 }
 
 .addTask {
+  margin: auto;
   font-size: 1.5rem;
   padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
   border: none;
   border-radius: 50px;
   border: 3px solid transparent;
@@ -102,10 +110,34 @@ body {
   width: 200px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .detailsInput {
   resize: none;
+}
+
+/* Current Tasks Container */
+
+.currentTasksContainer {
+  align-self: flex-start;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 250px));
+  grid-template-rows: repeat(auto-fit, min-content);
+}
+
+/* Task Cards */
+
+.taskCard {
+  font-size: 1.5rem;
+  width: minmax(min-content, 250px);
+  min-height: 300px;
+  max-height: min-content;
+  border: 3px solid grey;
+  padding: 1rem;
 }
 
 /* FOOTER */

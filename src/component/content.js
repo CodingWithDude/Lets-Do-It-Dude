@@ -3,7 +3,7 @@ import addTaskForm from "./forms/addTaskForm";
 import updateTasks from "./updateTasks";
 
 function content() {
-  const content = document.createElement("content");
+  const content = document.createElement("div");
   content.classList.add("content");
 
   //   Add task and form container
