@@ -7,6 +7,31 @@
     <title>Document</title>
   </head>
   <body>
-    <p>test</p>
+    <header>
+      <h1>Do it Dude</h1>
+    </header>
+    <sidebar>
+      <ul>
+        <li>Inbox</li>
+        <li>Today</li>
+        <li>This Week</li>
+      </ul>
+      <div class="projects">
+        <h1>Projects</h1>
+        <ul id="projectList"></ul>
+        <button id="addProjectBtn">+ Add Project</button>
+      </div>
+    </sidebar>
+    <main>
+      <section id="inboxSection"></section>
+      <div id="addTaskForm" class="addTaskForm inactive">
+        <input type="text" id="taskInput" />
+        <div class="addTaskFormBtns">
+          <button id="confirmAdd">Add</button>
+          <button id="cancelAdd">Cancel</button>
+        </div>
+      </div>
+      <button id="addTaskBtn" class="addTaskBtn active">+ Add Task</button>
+    </main>
   </body>
 </html>
