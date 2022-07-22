@@ -2,120 +2,105 @@
 import reset from "./styles/reset.css";
 import css from "./styles/main.css";
 
-// Task Class
-class Task {
-  constructor(title = "Unknown") {
-    this.title = title;
-  }
-}
+// Constructors
+import { Project } from "./constructors/project";
+import getTaskFromInput from "./functions/getTaskFromInput";
+import toggleActive from "./functions/toggleActive";
 
-// Project Class
-class Project {
-  constructor(project = "Unknown") {
-    this.project = project;
-    this.tasks = [];
-  }
-
-  addTask(newTask) {
-    if (!this.inProject(newTask)) {
-      this.tasks.push(newTask);
-    }
-  }
-
-  removeTask(title) {
-    this.tasks = this.tasks.filter((task) => task.title !== title);
-  }
-
-  getTask(title) {
-    return this.tasks.find((task) => task.title === title);
-  }
-
-  inProject(newTask) {
-    return this.tasks.some((task) => task.title === newTask.title);
-  }
-}
-
-const inbox = new Project("inbox");
+const project = new Project("inbox");
 
 // User Interface
-const inboxSection = document.getElementById("inboxSection");
+
+// Nav
+const inboxNav = document.getElementById("inboxNav");
+const todayNav = document.getElementById("inboxNav");
+const thisWeekNav = document.getElementById("inboxNav");
+const projectList = document.getElementById("projectList");
+const addProjectBtn = document.getElementById("addProjectBtn");
+
+// Content
+const content = document.getElementById("content");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const addTaskForm = document.getElementById("addTaskForm");
 const confirmAdd = document.getElementById("confirmAdd");
 const cancelAdd = document.getElementById("cancelAdd");
 const taskInput = document.getElementById("taskInput");
 
+// Add Task Click
 addTaskBtn.onclick = () => {
   taskInput.value = "";
-  // Hide Add Task Button
-  addTaskBtn.classList.add("inactive");
-  addTaskBtn.classList.remove("active");
-  //   Show Add Task Form
-  addTaskForm.classList.remove("inactive");
-  addTaskForm.classList.add("active");
+  toggleActive(addTaskBtn, addTaskForm);
 };
 
+// Confirm Add Click
 confirmAdd.onclick = () => {
   const newTask = getTaskFromInput();
-  inbox.addTask(newTask);
+  project.addTask(newTask);
   updateTaskList();
-  // Hide Add Task Button
-  addTaskBtn.classList.remove("inactive");
-  addTaskBtn.classList.add("active");
-  //   Show Add Task Form
-  addTaskForm.classList.add("inactive");
-  addTaskForm.classList.remove("active");
+  toggleActive(addTaskBtn, addTaskForm);
 };
 
+// Cancel Click
 cancelAdd.onclick = () => {
-  // Hide Add Task Button
-  addTaskBtn.classList.remove("inactive");
-  addTaskBtn.classList.add("active");
-  //   Show Add Task Form
-  addTaskForm.classList.add("inactive");
-  addTaskForm.classList.remove("active");
+  toggleActive(addTaskBtn, addTaskForm);
 };
 
-const getTaskFromInput = () => {
-  const title = document.getElementById("taskInput");
-
-  const task = new Task(title.value);
-
-  return task;
-};
-
-const removeTask = (e) => {
-  const title = e.target.parentNode.firstChild.innerHTML.replaceAll('"', "");
-  inbox.removeTask(title);
-  updateTaskList();
-};
-
+// Update Task List
 const updateTaskList = () => {
   resetTaskList();
-  for (let task of inbox.tasks) {
+  for (let task of project.tasks) {
     newTaskCard(task);
   }
-  console.log(inbox);
 };
 
+// Reset Task List
 const resetTaskList = () => {
-  inboxSection.innerHTML = "";
+  content.innerHTML = "";
 };
 
+// New Task Card
 const newTaskCard = (task) => {
   const taskCard = document.createElement("div");
   const title = document.createElement("p");
   const removeBtn = document.createElement("button");
+  const dueDate = document.createElement("button");
+  const dueDateInput = document.createElement("input");
 
   taskCard.classList.add("taskCard");
   removeBtn.classList.add("removeBtn");
 
+  dueDate.classList.add("dueDate");
+  dueDate.classList.add("active");
+  dueDate.textContent = task.dueDate;
+
+  dueDateInput.classList.add("dueDate");
+  dueDateInput.classList.add("inactive");
+  dueDateInput.type = "date";
+
   title.textContent = `"${task.title}"`;
   removeBtn.textContent = "Remove";
 
-  removeBtn.onclick = removeTask;
+  removeBtn.onclick = (e) => {
+    const title = e.target.parentNode.firstChild.innerHTML.replaceAll('"', "");
+    project.removeTask(title);
+    updateTaskList();
+  };
+
+  dueDate.onclick = () => {
+    toggleActive(dueDate, dueDateInput);
+    console.log(dueDateInput.value);
+  };
+
+  dueDateInput.onchange = () => {
+    task.dueDate = dueDateInput.value;
+    dueDate.textContent = dueDateInput.value;
+    updateTaskList();
+    toggleActive(dueDate, dueDateInput);
+  };
 
   taskCard.appendChild(title);
+  taskCard.appendChild(dueDate);
+  taskCard.appendChild(dueDateInput);
   taskCard.appendChild(removeBtn);
-  inboxSection.appendChild(taskCard);
+  content.appendChild(taskCard);
 };

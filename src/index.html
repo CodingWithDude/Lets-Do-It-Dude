@@ -12,18 +12,20 @@
     </header>
     <sidebar>
       <ul>
-        <li>Inbox</li>
-        <li>Today</li>
-        <li>This Week</li>
+        <li id="inboxNav">Inbox</li>
+        <li id="todayNav">Today</li>
+        <li id="thisWeekNav">This Week</li>
       </ul>
       <div class="projects">
-        <h1>Projects</h1>
+        <h1 id="projectName">Projects</h1>
         <ul id="projectList"></ul>
         <button id="addProjectBtn">+ Add Project</button>
       </div>
     </sidebar>
     <main>
-      <section id="inboxSection"></section>
+      <section id="content">
+        <h1 id="contentTitle"></h1>
+      </section>
       <div id="addTaskForm" class="addTaskForm inactive">
         <input type="text" id="taskInput" />
         <div class="addTaskFormBtns">
