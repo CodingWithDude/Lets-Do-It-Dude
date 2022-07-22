@@ -5,6 +5,7 @@ import css from "./styles/main.css";
 // Constructors
 import { Project } from "./constructors/project";
 import hambugerListner from "./functions/hamburgerListener";
+import addTaskBtnListener from "./functions/addTaskListener";
 import toggleActive from "./functions/toggleActive";
 
 const project = new Project("inbox");
