@@ -1,11 +1,11 @@
 import resetTaskContainer from "./resetTaskContainer";
 import project from "./project";
-import newTaskCard from "./newTaskCard";
+import taskCardHandler from "./taskCardHandler";
 
 const updateTaskContainer = () => {
   resetTaskContainer();
   for (let task of project.tasks) {
-    newTaskCard(task);
+    taskCardHandler(task);
   }
 };
 
