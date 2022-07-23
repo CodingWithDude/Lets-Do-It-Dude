@@ -13,7 +13,6 @@ const addTask = () => {
   inbox.addTask(newTask);
   toggleActive(addTaskBtn, addTaskInputContainer);
   updateTaskContainer();
-  console.log(project);
 };
 
 export default addTask;

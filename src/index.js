@@ -12,3 +12,5 @@ import toggleActive from "./functions/toggleActive";
 
 import project from "./constructors/project";
 import updateTaskContainer from "./functions/updateTaskContainer";
+
+import addProjectBtnListener from "./functions/addProjectBtnListener";

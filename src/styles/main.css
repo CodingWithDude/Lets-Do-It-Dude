@@ -78,22 +78,13 @@ header {
   display: none;
 }
 
-.your-projects {
-  font-weight: 500;
-}
-
-.projects-ul {
-  display: none;
-}
-
 .add-task-btn:hover {
   cursor: pointer;
 }
 
 .inbox:hover,
 .today:hover,
-.this-week:hover,
-.add-project-btn:hover {
+.this-week:hover {
   background-color: var(--bgc-nav-selected);
   cursor: pointer;
 }
@@ -122,16 +113,6 @@ header {
   border-radius: 5px;
   text-align: left;
   width: 100%;
-}
-
-.your-projects {
-  font-size: 2.5rem;
-  padding: 0.5rem;
-}
-
-.add-project-btn {
-  font-size: 2rem;
-  padding: 0.5rem;
 }
 
 .add-task-add-btn:hover,
@@ -272,11 +253,6 @@ input:hover {
     border-radius: 5px;
     text-align: left;
     width: 100%;
-  }
-
-  .your-projects {
-    font-size: 2rem;
-    padding: 0.5rem;
   }
 
   .header-nav-ul.show {
