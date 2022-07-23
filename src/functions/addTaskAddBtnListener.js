@@ -1,9 +1,9 @@
-import addTaskInputHandler from "./addTaskInputHandler";
+import addTask from "./addTask";
 
 const addTaskAddBtn = document.getElementById("add-task-add-btn");
 
 const addTaskAddBtnListener = addTaskAddBtn.addEventListener("click", () => {
-  addTaskInputHandler();
+  addTask();
 });
 
 export default addTaskAddBtnListener;
