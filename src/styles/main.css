@@ -13,9 +13,9 @@
   --bgc-header: #44403c;
   --c-header: #fafaf9;
 
-  --bgc-nav: #e7e5e4;
+  --bgc-nav: #d6d3d1;
   --c-nav: #292524;
-  --bgc-nav-selected: #d6d3d1;
+  --bgc-nav-selected: #a8a29e;
 }
 
 /* CSS RESET */
@@ -42,7 +42,7 @@ body {
 
 header {
   grid-column: 1 / span 2;
-  font-size: 3.5em;
+  font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 2px;
   background-color: var(--bgc-header);
@@ -79,7 +79,7 @@ header {
 }
 
 .your-projects {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .projects-ul {
@@ -89,7 +89,8 @@ header {
 .inbox:hover,
 .today:hover,
 .this-week:hover,
-.add-project-btn:hover {
+.add-project-btn:hover,
+.task-card:hover {
   background-color: var(--bgc-nav-selected);
   cursor: pointer;
 }
@@ -98,7 +99,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  font-size: 2em;
+  font-size: 2rem;
   grid-column: 1;
   grid-row: 2;
   background-color: var(--bgc-nav);
@@ -121,7 +122,7 @@ header {
 }
 
 .your-projects {
-  font-size: 1.5em;
+  font-size: 2.5rem;
   padding: 0.5rem;
 }
 
@@ -130,13 +131,77 @@ header {
   padding: 0.5rem;
 }
 
+.removeBtn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 main {
   grid-column: 2;
   grid-row: 2;
-  padding: 1.5em 2em;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.add-task-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.add-task-input-container input {
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-color: var(--bgc-nav);
+}
+
+.add-task-input-container input:focus,
+input:hover {
+  border: 2px solid var(--bgc-header);
+  outline: 2px solid var(--bgc-header);
+  background-color: #fff;
+}
+
+.add-task-btn-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.add-task-btn,
+.add-task-add-btn,
+.add-task-cancel-btn {
+  font-size: 1.75rem;
+}
+
+.task-container {
+  margin-top: 15px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, min-content);
+  gap: 1rem;
+}
+
+.task-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 5px;
+  height: fit-content;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--bgc-nav);
+  font-size: 1.5rem;
+}
+
+.removeBtn {
+  font-size: 1.2rem;
 }
 
 .active {
@@ -155,7 +220,7 @@ main {
     align-content: center;
   }
   header {
-    font-size: 2em;
+    font-size: 2rem;
     padding: 1rem 2rem;
   }
 
@@ -178,7 +243,7 @@ main {
   }
 
   .your-projects {
-    font-size: 1.3em;
+    font-size: 2rem;
     padding: 0.5rem;
   }
 
