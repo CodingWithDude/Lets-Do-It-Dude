@@ -1,4 +1,4 @@
-import project from "./project";
+import inbox from "./inbox";
 import updateTaskContainer from "./updateTaskContainer";
 
 const newTaskCard = (task) => {
@@ -33,10 +33,13 @@ const newTaskCard = (task) => {
 
 const removeTaskCard = (e) => {
   const taskTitle =
-    e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll('"', "");
-  project.removeTask(taskTitle);
+    e.target.parentNode.parentNode.firstChild.firstChild.innerHTML.replaceAll(
+      '"',
+      ""
+    );
+  inbox.removeTask(taskTitle);
   updateTaskContainer();
-  console.log(project);
+  console.log(inbox);
 };
 
 export default newTaskCard;

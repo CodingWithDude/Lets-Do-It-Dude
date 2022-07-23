@@ -1,5 +1,5 @@
 import getTaskFromInput from "./getTaskFromInput";
-import project from "./project";
+import inbox from "./inbox";
 import toggleActive from "./toggleActive";
 import updateTaskContainer from "./updateTaskContainer";
 
@@ -10,7 +10,7 @@ const addTaskInputContainer = document.getElementById(
 
 const addTask = () => {
   const newTask = getTaskFromInput();
-  project.addTask(newTask);
+  inbox.addTask(newTask);
   toggleActive(addTaskBtn, addTaskInputContainer);
   updateTaskContainer();
   console.log(project);

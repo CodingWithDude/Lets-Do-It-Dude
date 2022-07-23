@@ -9,3 +9,6 @@ import addTaskBtnListener from "./functions/addTaskBtnListener";
 import addTaskAddBtnListener from "./functions/addTaskAddBtnListener";
 import addTaskCancelBtnListener from "./functions/addTaskCancelListener";
 import toggleActive from "./functions/toggleActive";
+
+import project from "./constructors/project";
+import updateTaskContainer from "./functions/updateTaskContainer";
